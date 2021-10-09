@@ -4,6 +4,10 @@ let bookAuthor;
 let bookPages;
 let bookRead;
 
+const cardContainer = document.querySelector('#cardContainer');
+const dummyContainer1 = document.querySelector('#dummyContainer1');
+const dummy2Container = document.querySelector('#dummyContainer2');
+
 function Book(title, author, numOfPages, haveRead){
     this.title = title
     this.author = author
@@ -37,8 +41,10 @@ function addBookToLibrary(){
 
 function displayBookFromLibrary(){
     myLibrary.forEach(function(item, index, array){
-        console.log(item);
+        console.table(item);
+        cardContainer.textContent += item.title + " " + item.author + " " + item.numOfPages + " " + item.haveRead;
     })
+    // cardContainer.textContent += myLibrary.join(",");
 }
 addBookToLibrary();
 // console.log(myLibrary);
