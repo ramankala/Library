@@ -1,0 +1,15 @@
+#container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#cardContainer{
+    display: flex;
+    gap: 20px;
+}
+
+#bookDiv{
+    border: 2px solid black;
+    white-space: pre;
+}
