@@ -69,6 +69,9 @@ function displayBookFromLibrary(){
             pos = bookDiv.getAttribute("data-index-number");
             console.log(pos);
             removeBook(pos);
+            cardContainer.removeChild(bookDiv);
+            cardContainer.removeChild(removeBookBtn);
+            console.log(myLibrary);
             
         });
     });
