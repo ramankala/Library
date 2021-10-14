@@ -40,6 +40,13 @@ function addBookToLibrary(book){
 
 }
 
+function removeBook(pos){
+    console.log(myLibrary);
+    myLibrary.splice(pos, 1);
+    console.log(myLibrary);
+    
+}
+
 function displayBookFromLibrary(){
     
     let bookDiv;
@@ -48,15 +55,28 @@ function displayBookFromLibrary(){
     myLibrary.forEach(function(item, index, array){
         bookDiv = document.createElement("div");
         bookDiv.setAttribute("id", "bookDiv");
+        bookDiv.setAttribute("data-index-number", index);
+        console.log(bookDiv.attributes);
         console.table(item);
         bookDiv.textContent += '"' + item.title + '"' + "\r\n" + item.author + "\r\nPages: " + item.numOfPages + "\r\nHave read?: " + item.haveRead + "\r\n";
         removeBookBtn = document.createElement("button");
+        removeBookBtn.setAttribute("id", "removeBookBtn");
         removeBookBtn.textContent = "Remove";
+
+        removeBookBtn.addEventListener('click', function(){
+            let pos;
+            console.log(bookDiv.hasAttribute("data-index-number"));
+            pos = bookDiv.getAttribute("data-index-number");
+            console.log(pos);
+            removeBook(pos);
+            
+        });
     });
     cardContainer.appendChild(bookDiv);
     cardContainer.appendChild(removeBookBtn);
     
 }
+
 
 addBookBtn.addEventListener('click', function(){
 
@@ -65,9 +85,7 @@ addBookBtn.addEventListener('click', function(){
     displayBookFromLibrary();
 });
 
-removeBookBtn.addEventListener('click', function(){
-    
-})
+
 
 
 // createBook(title, author,numOfPages, haveRead);
