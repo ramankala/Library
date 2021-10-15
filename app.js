@@ -36,14 +36,11 @@ function createBook(title, author, numOfPages, haveRead){
 function addBookToLibrary(book){
 
     myLibrary.push(book);
-    // console.log(book1.info());
 
 }
 
 function removeBook(pos){
-    console.log(myLibrary);
     myLibrary.splice(pos, 1);
-    console.log(myLibrary);
     
 }
 
@@ -57,9 +54,6 @@ function displayBookFromLibrary(){
         bookDiv = document.createElement("div");
         bookDiv.setAttribute("id", "bookDiv");
         bookDiv.setAttribute("data-index-number", index);
-
-        console.log(bookDiv.attributes);
-        console.table(item);
 
         bookDiv.textContent += '"' + item.title + '"' + "\r\n" + item.author + "\r\nPages: " + item.numOfPages + "\r\nHave read?: " + item.haveRead + "\r\n";
 
@@ -83,29 +77,30 @@ function displayBookFromLibrary(){
 
         removeBookBtn.addEventListener('click', function(){
             let pos;
-            console.log(bookDiv.hasAttribute("data-index-number"));
+
             pos = bookDiv.getAttribute("data-index-number");
-            console.log(pos);
             removeBook(pos);
             cardContainer.removeChild(bookDiv);
             cardContainer.removeChild(removeBookBtn);
-            console.log(myLibrary);
             
         });
 
-        changeReadBtn.addEventListener('click', function(){
+        changeReadBtn.addEventListener('click', function(e){
 
-            if (item.haveRead == 'Read') {
+
+            if (e.target.className == 'haveRead') {
                 item.haveRead = "Not Read";
-                changeReadBtn.textContent = 'Not Read';
-                changeReadBtn.classList.toggle('haveRead');
-                changeReadBtn.classList.toggle('notRead');
+                e.target.textContent = 'Not Read';
+                e.target.classList.toggle('haveRead');
+                e.target.classList.toggle('notRead');
+
             }
-            else if (item.haveRead == 'Not Read'){
+            else if (e.target.className == 'notRead'){
                 item.haveRead = "Read";
-                changeReadBtn.textContent = 'Read';
-                changeReadBtn.classList.toggle('notRead');
-                changeReadBtn.classList.toggle('haveRead');
+                e.target.textContent = 'Read';
+                e.target.classList.toggle('notRead');
+                e.target.classList.toggle('haveRead');
+
             }
 
         });
@@ -123,9 +118,3 @@ addBookBtn.addEventListener('click', function(){
     addBookToLibrary(book);
     displayBookFromLibrary();
 });
-
-
-
-
-// createBook(title, author,numOfPages, haveRead);
-// console.log(myLibrary);
