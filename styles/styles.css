@@ -13,3 +13,11 @@
     border: 2px solid black;
     white-space: pre;
 }
+
+.haveRead{
+    background-color: green;
+}
+
+.notRead{
+    background-color: red;
+}

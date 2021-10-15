@@ -26,7 +26,7 @@ function createBook(title, author, numOfPages, haveRead){
     title = window.prompt("Enter the title of the book:");
     author = window.prompt("Enter the author of the book:");
     numOfPages = window.prompt("Enter the number of pages for the book:");
-    haveRead = window.prompt("Have you read the book?:");
+    haveRead = window.prompt("Have you read the book?(Y/N):");
 
     const book = new Book(title, author, numOfPages, haveRead);
 
@@ -53,15 +53,33 @@ function displayBookFromLibrary(){
     let removeBookBtn;
 
     myLibrary.forEach(function(item, index, array){
+
         bookDiv = document.createElement("div");
         bookDiv.setAttribute("id", "bookDiv");
         bookDiv.setAttribute("data-index-number", index);
+
         console.log(bookDiv.attributes);
         console.table(item);
+
         bookDiv.textContent += '"' + item.title + '"' + "\r\n" + item.author + "\r\nPages: " + item.numOfPages + "\r\nHave read?: " + item.haveRead + "\r\n";
+
         removeBookBtn = document.createElement("button");
         removeBookBtn.setAttribute("id", "removeBookBtn");
         removeBookBtn.textContent = "Remove";
+
+        changeReadBtn = document.createElement("button");
+        changeReadBtn.setAttribute("id", "changeReadBtn");
+
+        if (item.haveRead == "Y"){
+            item.haveRead = 'Read';
+            changeReadBtn.textContent = "Read";
+            changeReadBtn.classList.toggle('haveRead');
+        }
+        else {
+            item.haveRead = 'Not Read';
+            changeReadBtn.textContent = "Not Read";
+            changeReadBtn.classList.toggle('notRead');
+        }
 
         removeBookBtn.addEventListener('click', function(){
             let pos;
@@ -74,8 +92,26 @@ function displayBookFromLibrary(){
             console.log(myLibrary);
             
         });
+
+        changeReadBtn.addEventListener('click', function(){
+
+            if (item.haveRead == 'Read') {
+                item.haveRead = "Not Read";
+                changeReadBtn.textContent = 'Not Read';
+                changeReadBtn.classList.toggle('haveRead');
+                changeReadBtn.classList.toggle('notRead');
+            }
+            else if (item.haveRead == 'Not Read'){
+                item.haveRead = "Read";
+                changeReadBtn.textContent = 'Read';
+                changeReadBtn.classList.toggle('notRead');
+                changeReadBtn.classList.toggle('haveRead');
+            }
+
+        });
     });
     cardContainer.appendChild(bookDiv);
+    cardContainer.appendChild(changeReadBtn);
     cardContainer.appendChild(removeBookBtn);
     
 }
