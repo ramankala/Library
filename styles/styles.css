@@ -1,23 +1,93 @@
+body{
+    background-color: rgb(29, 131, 63);
+}
+#title{
+    text-align: center;
+    color: rgb(245, 207, 137);
+    font-size: 48px;
+    font-weight: 700;
+}
 #container{
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 1;
     flex-direction: column;
+    height: 674px;
+    padding-left: 120px;
+    padding-top: 80px;
+    
 }
 #cardContainer{
     display: flex;
-    gap: 20px;
+    flex: 1;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 60px;
+    
+    
+    
 }
 
 #bookDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-basis: auto;
     border: 2px solid black;
     white-space: pre;
+    background-color: rgb(76, 240, 76);
+    width: 400px;
+    height: 250px;
+    padding: 20px;
+    gap: 20px;
+    font-size: 40px;
+    white-space: pre-wrap;
+    
 }
 
 .haveRead{
-    background-color: green;
+    background-color: rgb(37, 172, 37);
+    font-size: 16px;
+    font-weight: 500;
 }
 
 .notRead{
-    background-color: red;
+    background-color: rgb(231, 167, 167);
+    font-size: 16px;
+    font-weight: 500;
+    
+}
+#footer{
+    display: flex;
+    flex: 1;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 20px;
+
+}
+#addBook{
+    background-color: rgb(110, 110, 236);
+    color: #ffffff;
+    font-size: 48px;
+    border-radius: 36px;
+    font-weight: 600;
+    
+}
+#buttonContainer{
+    display: flex;
+    gap: 40px;
+}
+
+#changeReadBtn{
+    width: 100px;
+    height: 40px;
+}
+#removeBookBtn{
+    width: 100px;
+    height: 40px;
+    background-color: rgb(223, 13, 13);
+    font-size: 16px;
+    font-weight: 500;
+
 }

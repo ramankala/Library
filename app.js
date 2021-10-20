@@ -17,9 +17,6 @@ function Book(title, author, numOfPages, haveRead){
         console.log(title + " by " + author + ", " + numOfPages + ", " + haveRead)
     }
 }
-// const book1 = new Book("The Hobbit", "J.R.R. Tolkien", "295", "Yes");
-// const book2 = new Book("Game of Thrones", "George R.R. Martin", "694", "Yes");
-// const book3 = new Book("The Name of the Wind", "Patrick Rothfuss", "662", "Yes");
 
 function createBook(title, author, numOfPages, haveRead){
 
@@ -55,7 +52,7 @@ function displayBookFromLibrary(){
         bookDiv.setAttribute("id", "bookDiv");
         bookDiv.setAttribute("data-index-number", index);
 
-        bookDiv.textContent += '"' + item.title + '"' + "\r\n" + item.author + "\r\nPages: " + item.numOfPages + "\r\nHave read?: " + item.haveRead + "\r\n";
+        bookDiv.textContent += '"' + item.title + '"' + "\r\n" + item.author + "\r\nPages: " + item.numOfPages;
 
         removeBookBtn = document.createElement("button");
         removeBookBtn.setAttribute("id", "removeBookBtn");
@@ -105,9 +102,13 @@ function displayBookFromLibrary(){
 
         });
     });
+    buttonContainer = document.createElement('div');
+    buttonContainer.setAttribute("id", "buttonContainer");
+    buttonContainer.appendChild(changeReadBtn);
+    buttonContainer.appendChild(removeBookBtn);
+    bookDiv.appendChild(buttonContainer);
     cardContainer.appendChild(bookDiv);
-    cardContainer.appendChild(changeReadBtn);
-    cardContainer.appendChild(removeBookBtn);
+    
     
 }
 
