@@ -26,9 +26,15 @@ function createBook(title, author, numOfPages, haveRead){
     haveRead = window.prompt("Have you read the book?(Y/N):");
     haveRead = haveRead.toLowerCase();
 
-    const book = new Book(title, author, numOfPages, haveRead);
+    if ((title == "" || title == null) || (author == "" || author == null) || (numOfPages == "" || numOfPages == null) || (haveRead == "" || haveRead == null)){
 
-    return book;
+    }
+    else{
+        const book = new Book(title, author, numOfPages, haveRead);
+
+        return book;
+
+    }
 }
 
 function addBookToLibrary(book){
