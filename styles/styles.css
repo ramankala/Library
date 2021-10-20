@@ -34,27 +34,28 @@ body{
     justify-content: center;
     align-items: center;
     flex-basis: auto;
-    border: 2px solid black;
+    border: 6px solid black;
     white-space: pre;
     background-color: rgb(76, 240, 76);
-    width: 400px;
-    height: 250px;
+    width: 275px;
+    height: 300px;
     padding: 20px;
     gap: 20px;
-    font-size: 40px;
+    font-size: 36px;
     white-space: pre-wrap;
+    border-radius: 16px;
     
 }
 
 .haveRead{
     background-color: rgb(37, 172, 37);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
 }
 
 .notRead{
     background-color: rgb(231, 167, 167);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     
 }
@@ -72,6 +73,7 @@ body{
     font-size: 48px;
     border-radius: 36px;
     font-weight: 600;
+    border: 2px solid black;
     
 }
 #buttonContainer{
@@ -82,12 +84,16 @@ body{
 #changeReadBtn{
     width: 100px;
     height: 40px;
+    border-radius: 8px;
+    border: 4px solid black;
 }
 #removeBookBtn{
     width: 100px;
     height: 40px;
     background-color: rgb(223, 13, 13);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
+    border-radius: 8px;
+    border: 4px solid black;
 
 }
