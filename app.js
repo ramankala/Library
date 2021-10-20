@@ -24,6 +24,7 @@ function createBook(title, author, numOfPages, haveRead){
     author = window.prompt("Enter the author of the book:");
     numOfPages = window.prompt("Enter the number of pages for the book:");
     haveRead = window.prompt("Have you read the book?(Y/N):");
+    haveRead = haveRead.toLowerCase();
 
     const book = new Book(title, author, numOfPages, haveRead);
 
@@ -61,7 +62,7 @@ function displayBookFromLibrary(){
         changeReadBtn = document.createElement("button");
         changeReadBtn.setAttribute("id", "changeReadBtn");
 
-        if (item.haveRead == "Y"){
+        if (item.haveRead == "y"){
             item.haveRead = 'Read';
             changeReadBtn.textContent = "Read";
             changeReadBtn.classList.toggle('haveRead');
