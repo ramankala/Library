@@ -1,20 +1,34 @@
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
 body{
+    height: 100%;
+    width: 100%;
     background-color: rgb(29, 131, 63);
+    margin: 0;
 }
 #title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: rgb(245, 207, 137);
     font-size: 48px;
     font-weight: 700;
+    position: fixed;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
 }
 #container{
     display: flex;
     flex: 1;
     flex-direction: column;
-    height: 674px;
+    height: 100%;
     padding-left: 120px;
-    padding-top: 80px;
-    
 }
 #cardContainer{
     display: flex;
@@ -23,9 +37,9 @@ body{
     flex-wrap: wrap;
     align-items: flex-start;
     gap: 60px;
-    
-    
-    
+    padding-top: 180px;
+    height: 100%;
+
 }
 
 #bookDiv{
@@ -44,7 +58,6 @@ body{
     font-size: 36px;
     white-space: pre-wrap;
     border-radius: 16px;
-    
 }
 
 .haveRead{
@@ -96,4 +109,64 @@ body{
     border-radius: 8px;
     border: 4px solid black;
 
+}
+#bookFormContainer{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    flex: 1;
+    z-index: 1;
+    position: fixed;
+    background-color: rgba(0,0,0,0.4);
+
+}
+#addBookForm{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color:rgb(240, 248, 255);
+    gap: 30px;
+    padding: 40px;
+
+}
+legend {
+    font-size: 28px;
+    font-weight: 550;
+}
+input#addTitle,input#addAuthor, input#addPages{
+    border:solid black 2px;
+    height: 40px;
+    width: 300px;
+    font-size: 20px;
+    font-weight: 500;
+}
+#submitBook{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(8, 21, 138);
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 550;
+    border-radius: 6px;
+    border: solid black 3px;
+
+}
+#formHeader{
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+#closeForm{
+    color: rgb(168, 161, 161);
+    font-size: 24px;
+    font-weight: 600;
+    border: solid rgb(2, 2, 2) 3px;
+    padding: 4px;
 }

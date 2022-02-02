@@ -11,6 +11,24 @@
 </head>
 <body>
     <h1 id="title">Library App</h1>
+    <div id="bookFormContainer">
+        <form>
+            <div id="addBookForm">
+                <div id="formHeader">
+                    <legend>New Book</legend>
+                    <span id='closeForm'>X</span>
+                </div>
+                    <input type="text" id="addTitle" name="bookTitle" placeholder="Title">
+                    <input type="text" id="addAuthor" name="bookAuthor" placeholder="Author">
+                    <input type="text" id="addPages" name="bookPages" placeholder="Pages">
+                    <div id="checkBox">
+                        <label for="bookRead">Read:</label><input type="checkbox" id="addRead" name="bookRead">
+                    </div>
+                <button type='submit' id="submitBook">Submit</button>
+            </div>
+        </form>
+    </div>
+
     <div id="container">
         <div id="cardContainer"></div>
 

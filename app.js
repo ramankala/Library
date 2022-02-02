@@ -6,6 +6,8 @@ let bookRead;
 
 const cardContainer = document.querySelector('#cardContainer');
 const addBookBtn = document.querySelector('#addBook');
+const submitBookBtn = document.querySelector('#submitBook');
+const closeFormBtn = document.getElementById('closeForm');
 
 
 class Book{
@@ -21,22 +23,20 @@ class Book{
     }
 
     createBook(title, author, numOfPages, haveRead){
+        const getTitle = document.getElementById('addTitle');
+        const getAuthor = document.getElementById('addAuthor');
+        const getPages = document.getElementById('addPages');
+        const getStatus = document.getElementById('addRead');
 
-        title = window.prompt("Enter the title of the book:");
-        author = window.prompt("Enter the author of the book:");
-        numOfPages = window.prompt("Enter the number of pages for the book:");
-        haveRead = window.prompt("Have you read the book?(Y/N):");
-        haveRead = haveRead.toLowerCase();
+        title = getTitle.value;
+        author = getAuthor.value;
+        numOfPages = getPages.value;
+        haveRead = getStatus.checked;
+        console.log(haveRead);
 
-        if ((title == "" || title == null) || (author == "" || author == null) || (numOfPages == "" || numOfPages == null) || (haveRead == "" || haveRead == null)){
+        const book = new Book(title, author, numOfPages, haveRead);
 
-        }
-        else{
-            const book = new Book(title, author, numOfPages, haveRead);
-
-            return book;
-
-        }
+        return book;
     }
 
     addBookToLibrary(book){
@@ -72,7 +72,7 @@ class Book{
             changeReadBtn = document.createElement("button");
             changeReadBtn.setAttribute("id", "changeReadBtn");
 
-            if (item.haveRead == "y"){
+            if (item.haveRead === true){
                 item.haveRead = 'Read';
                 changeReadBtn.textContent = "Read";
                 changeReadBtn.classList.toggle('haveRead');
@@ -131,13 +131,29 @@ class Book{
 
 }
 
+submitBookBtn.addEventListener('click', function(e){
+    e.preventDefault();
 
-addBookBtn.addEventListener('click', function(){
-
+    const popUpForm = document.getElementById('bookFormContainer');
     let book = new Book();
     let newEntry;
 
     newEntry = book.createBook();
     book.addBookToLibrary(newEntry);
     book.displayBookFromLibrary();
+    popUpForm.style.display = 'none';
+})
+
+addBookBtn.addEventListener('click', function(){
+
+    const popUpForm = document.getElementById('bookFormContainer');
+    popUpForm.style.display = 'flex';
+
+
 });
+
+closeFormBtn.addEventListener('click', function(){
+
+    const popUpForm = document.getElementById('bookFormContainer');
+    popUpForm.style.display = 'none';
+})
